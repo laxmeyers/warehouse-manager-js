@@ -48,3 +48,30 @@ const packages = [{
     to: 'Tae Lien',
     trackingNumber: 'suz2367'
   }]
+
+  function drawPackages(array){
+    let page = document.getElementById("list")
+
+    page.innerHTML = array
+  }
+  
+  function sortAllPackages(){
+    let all = ''
+
+    packages.forEach(package => {
+        all += `<div class="col-2 text-success text-center p-3 border border-light"><h1>TO:</h1></div><div class="col-5 text-success text-end p-3"><h1>${package.to}</h1></div> <div class="col-3 text-success text-end p-3"><h1>ID:</h1></div><div class="col-2 text-success text-end p-3"><h1>${package.trackingNumber}</h1></div></div>`
+    })
+
+    drawPackages(all)
+  }
+
+  function sortHeavyPackages(){
+    let heavey = ''
+    packages.forEach(package => {
+        if(package.weight > 3){
+            heavey += `<div class="col-2 text-success text-end"><h1>TO:</h1></div><div class="col-5 text-success text-end"><h1>${package.to}</h1></div> <div class="col-2 offset-1 text-success text-end"><h1>ID:</h1></div><div class="col-2 text-success text-end"><h1>${package.trackingNumber}</h1></div></div>`
+        }
+    })
+
+    drawPackages(heavey)
+  }

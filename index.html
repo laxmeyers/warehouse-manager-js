@@ -18,8 +18,25 @@
     ></script>
     <link rel="stylesheet" href="style.css" />
     <title>Warehouse Manager</title>
+    <style>
+        body.debug .container,
+        body.debug .container-fluid {
+          outline: 2px double blue;
+          outline-offset: -2px;
+        }
+  
+        body.debug .row {
+          outline: 2px dashed red;
+          outline-offset: -2px;
+        }
+  
+        body.debug [class*="col-"] {
+          outline: 2px dotted forestgreen;
+          outline-offset: -3px;
+        }
+      </style>
   </head>
-  <body>
+  <body class="debug">
     <header></header>
 
     <main>
@@ -30,7 +47,7 @@
           </div>
           <div class="col-2">
             <h1>
-              <button class="btn btn-light">HEAVY</button>
+              <button class="btn btn-light" onclick="sortHeavyPackages()">HEAVY</button>
             </h1>
           </div>
           <div class="col-2">
@@ -50,10 +67,16 @@
           </div>
           <div class="col-2">
             <h1>
-              <button class="btn btn-light">ALL</button>
+              <button class="btn btn-light" onclick="sortAllPackages()">ALL</button>
             </h1>
           </div>
         </div>
+        <div class="row">
+            <div class="col-12 text-center text-success">
+                <h1>Packages</h1>
+            </div>
+        </div>
+        <div class="row p-3" id="list"></div>
       </div>
     </main>
 
