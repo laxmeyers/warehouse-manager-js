@@ -80,7 +80,7 @@ const packages = [{
     let light = ''
     packages.forEach(package => {
         if(package.weight < 3){
-            light += `<div class="row m-3 p-3 border border-light"><div class="col-2 text-success text-center p-3"><h1>TO:</h1></div><div class="col-5 text-light text-end p-3"><h1>${package.to}</h1></div> <div class="col-3 text-success text-end p-3"><h1>ID:</h1></div><div class="col-2 text-light text-end p-3"><h1>${package.trackingNumber}</h1></div></div></div>`
+            light += `<div class="row m-3 p-3 border border-light hover"><div class="col-2 text-success text-center p-3"><h1>TO:</h1></div><div class="col-5 text-light text-end p-3"><h1>${package.to}</h1></div> <div class="col-3 text-success text-end p-3"><h1>ID:</h1></div><div class="col-2 text-light text-end p-3"><h1>${package.trackingNumber}</h1></div></div></div>`
         }
     })
 
@@ -88,11 +88,11 @@ const packages = [{
   }
 
   function sortPriorityPackages(){
-    let sort = window.prompt('expe')
+    let sort = window.prompt('express, standard, free')
     let priority = ''
     packages.forEach(package => {
-        if(package.priorityLevel == "express"){
-            priority += `<div class="row m-3 p-3 border border-light"><div class="col-2 text-success text-center p-3"><h1>TO:</h1></div><div class="col-5 text-light text-end p-3"><h1>${package.to}</h1></div> <div class="col-3 text-success text-end p-3"><h1>ID:</h1></div><div class="col-2 text-light text-end p-3"><h1>${package.trackingNumber}</h1></div></div></div>`
+        if(package.priorityLevel == sort){
+            priority += `<div class="row m-3 p-3 border border-light box"><div class="col-2 text-success text-center p-3"><h1>TO:</h1></div><div class="col-5 text-light text-end p-3"><h1>${package.to}</h1></div> <div class="col-3 text-success text-end p-3"><h1>ID:</h1></div><div class="col-2 text-light text-end p-3"><h1>${package.trackingNumber}</h1></div></div></div>`
         }
     })
     drawPackages(priority)
@@ -102,7 +102,7 @@ const packages = [{
         let fragile = ''
         packages.forEach(package => {
             if(package.isFragile){
-                fragile += `<div class="row m-3 p-3 border border-light"><div class="col-2 text-success text-center p-3"><h1>TO:</h1></div><div class="col-5 text-light text-end p-3"><h1>${package.to}</h1></div> <div class="col-3 text-success text-end p-3"><h1>ID:</h1></div><div class="col-2 text-light text-end p-3"><h1>${package.trackingNumber}</h1></div></div></div>`
+                fragile += `<div class="row m-3 p-3 border border-light box"><div class="col-2 text-success text-center p-3"><h1>TO:</h1></div><div class="col-5 text-light text-end p-3"><h1>${package.to}</h1></div> <div class="col-3 text-success text-end p-3"><h1>ID:</h1></div><div class="col-2 text-light text-end p-3"><h1>${package.trackingNumber}</h1></div></div></div>`
             }
         })
 
