@@ -59,7 +59,7 @@ const packages = [{
     let all = ''
 
     packages.forEach(package => {
-        all += `<div class="col-2 text-success text-center p-3 border border-light"><h1>TO:</h1></div><div class="col-5 text-success text-end p-3"><h1>${package.to}</h1></div> <div class="col-3 text-success text-end p-3"><h1>ID:</h1></div><div class="col-2 text-success text-end p-3"><h1>${package.trackingNumber}</h1></div></div>`
+        all += `<div class="row m-3 border border-light"><div class="col-2 text-success text-center p-3"><h1>TO:</h1></div><div class="col-5 text-light text-end p-3"><h1>${package.to}</h1></div> <div class="col-3 text-success text-end p-3"><h1>ID:</h1></div><div class="col-2 text-light text-end p-3"><h1>${package.trackingNumber}</h1></div></div></div>`
     })
 
     drawPackages(all)
@@ -69,9 +69,45 @@ const packages = [{
     let heavey = ''
     packages.forEach(package => {
         if(package.weight > 3){
-            heavey += `<div class="col-2 text-success text-end"><h1>TO:</h1></div><div class="col-5 text-success text-end"><h1>${package.to}</h1></div> <div class="col-2 offset-1 text-success text-end"><h1>ID:</h1></div><div class="col-2 text-success text-end"><h1>${package.trackingNumber}</h1></div></div>`
+            heavey += `<div class="row m-3 p-3 border border-light"><div class="col-2 text-success text-center p-3"><h1>TO:</h1></div><div class="col-5 text-light text-end p-3"><h1>${package.to}</h1></div> <div class="col-3 text-success text-end p-3"><h1>ID:</h1></div><div class="col-2 text-light text-end p-3"><h1>${package.trackingNumber}</h1></div></div></div>`
         }
     })
 
     drawPackages(heavey)
   }
+
+  function sortLightPackages(){
+    let light = ''
+    packages.forEach(package => {
+        if(package.weight < 3){
+            light += `<div class="row m-3 p-3 border border-light"><div class="col-2 text-success text-center p-3"><h1>TO:</h1></div><div class="col-5 text-light text-end p-3"><h1>${package.to}</h1></div> <div class="col-3 text-success text-end p-3"><h1>ID:</h1></div><div class="col-2 text-light text-end p-3"><h1>${package.trackingNumber}</h1></div></div></div>`
+        }
+    })
+
+    drawPackages(light)
+  }
+
+  function sortPriorityPackages(){
+    let sort = window.prompt('expe')
+    let priority = ''
+    packages.forEach(package => {
+        if(package.priorityLevel == "express"){
+            priority += `<div class="row m-3 p-3 border border-light"><div class="col-2 text-success text-center p-3"><h1>TO:</h1></div><div class="col-5 text-light text-end p-3"><h1>${package.to}</h1></div> <div class="col-3 text-success text-end p-3"><h1>ID:</h1></div><div class="col-2 text-light text-end p-3"><h1>${package.trackingNumber}</h1></div></div></div>`
+        }
+    })
+    drawPackages(priority)
+  }
+
+    function sortFragilePackages(){
+        let fragile = ''
+        packages.forEach(package => {
+            if(package.isFragile){
+                fragile += `<div class="row m-3 p-3 border border-light"><div class="col-2 text-success text-center p-3"><h1>TO:</h1></div><div class="col-5 text-light text-end p-3"><h1>${package.to}</h1></div> <div class="col-3 text-success text-end p-3"><h1>ID:</h1></div><div class="col-2 text-light text-end p-3"><h1>${package.trackingNumber}</h1></div></div></div>`
+            }
+        })
+
+    drawPackages(fragile)
+  }
+
+
+  sortAllPackages()

@@ -36,12 +36,12 @@
         }
       </style>
   </head>
-  <body class="debug">
+  <body class="deug">
     <header></header>
 
     <main>
-      <div class="container bg-black mt-5">
-        <div class="row border border-light text-center p-3">
+      <div class="container bg-black border border-light my-5 pb-4">
+        <div class="row  text-center p-3">
           <div class="col-2">
             <h1 class="text-light">Filter By:</h1>
           </div>
@@ -52,17 +52,17 @@
           </div>
           <div class="col-2">
             <h1>
-              <button class="btn btn-light">LIGHT</button>
+              <button class="btn btn-light" onclick="sortLightPackages()">LIGHT</button>
             </h1>
           </div>
           <div class="col-2">
             <h1>
-              <button class="btn btn-light">PRIORITY</button>
+              <button class="btn btn-light" onclick="sortPriorityPackages()">PRIORITY</button>
             </h1>
           </div>
           <div class="col-2">
             <h1>
-              <button class="btn btn-light">FRGILE</button>
+              <button class="btn btn-light" onclick="sortFragilePackages()">FRAGILE</button>
             </h1>
           </div>
           <div class="col-2">
@@ -76,7 +76,8 @@
                 <h1>Packages</h1>
             </div>
         </div>
-        <div class="row p-3" id="list"></div>
+        <span id="list"></span>
+        <!-- <div class="row p-3" id="list"></div> -->
       </div>
     </main>
 
